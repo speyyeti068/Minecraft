@@ -13,8 +13,12 @@ var playerObject = "";
 var blockImageObject = "";
 
 function playerUpdate(){
-    fabric.Image.fromURL("player.png", function(img){
-        playerObject = img;
+    console.log("player update function is being called");
+
+    fabric.Image.fromURL("player.png", function(img1){
+        console.log(img1);
+
+        playerObject = img1;
         playerObject.scaleToWidth(150);
         playerObject.scaleToHeight(140);
 
@@ -26,8 +30,8 @@ function playerUpdate(){
 }
 
 function newImage(getImage){
-    fabric.Image.fromURL(getImage, function(img){
-        blockImageObject = img;
+    fabric.Image.fromURL(getImage, function(img1){
+        blockImageObject = img1;
         blockImageObject.scaleToWidth(blockImageWidth);
         blockImageObject.scaleToHeight(blockImageHeight);
 
@@ -137,5 +141,35 @@ function mykeydown(e){
         newImage("cloud.jpg");
 
         console.log("c is pressed")
+    }
+}
+
+function up(){
+    console.log("up function is being called");
+
+    if (playerY>=0){
+        playerY = playerY - blockImageHeight;
+        console.log("log image height " + blockImageHeight);
+
+        console.log("player x: " + playerX);
+        console.log("player y: " + playerY);
+
+        canvas.remove(playerObject);
+        playerUpdate();
+    }
+}
+
+function down(){
+    console.log("down function is being called");
+
+    if (playerY<=560){
+        playerY = playerY + blockImageHeight;
+        console.log("log image height " + blockImageHeight);
+
+        console.log("player x: " + playerX);
+        console.log("player y: " + playerY);
+
+        canvas.remove(playerObject);
+        playerUpdate();
     }
 }
