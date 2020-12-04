@@ -147,7 +147,7 @@ function mykeydown(e){
 function up(){
     console.log("up function is being called");
 
-    if (playerY>=0){
+    if (playerY>=10){
         playerY = playerY - blockImageHeight;
         console.log("log image height " + blockImageHeight);
 
@@ -162,9 +162,39 @@ function up(){
 function down(){
     console.log("down function is being called");
 
-    if (playerY<=560){
+    if (playerY<=460){
         playerY = playerY + blockImageHeight;
         console.log("log image height " + blockImageHeight);
+
+        console.log("player x: " + playerX);
+        console.log("player y: " + playerY);
+
+        canvas.remove(playerObject);
+        playerUpdate();
+    }
+}
+
+function left(){
+    console.log("left function is being called");
+
+    if (playerX>=0){
+        playerX = playerX - blockImageWidth;
+        console.log("log image width " + blockImageWidth);
+
+        console.log("player x: " + playerX);
+        console.log("player y: " + playerY);
+
+        canvas.remove(playerObject);
+        playerUpdate();
+    }
+}
+
+function right(){
+    console.log("right function is being called");
+
+    if (playerX<=750){
+        playerX = playerX + blockImageWidth;
+        console.log("log image width " + blockImageWidth);
 
         console.log("player x: " + playerX);
         console.log("player y: " + playerY);
